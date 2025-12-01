@@ -8,21 +8,116 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--peach-pink);
+    background: linear-gradient(to bottom, #ffc0cb, #f3d4d4, #fce4ec);
     color: var(--text-dark);
     margin: 0;
     padding: 0;
     text-align: center;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
+    overflow-x: hidden; /* Evita a barra de rolagem horizontal por causa das nuvens */
 }
 
 body.loaded {
     opacity: 1;
 }
 
+/* --- Animação de Nuvens --- */
+#clouds-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Coloca as nuvens atrás de todo o conteúdo */
+}
+
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: move-clouds linear infinite;
+}
+
+.cloud::before, .cloud::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.cloud:nth-child(1) {
+    width: 200px; height: 60px;
+    top: 10%; left: -250px;
+    animation-duration: 25s;
+}
+.cloud:nth-child(1)::before {
+    width: 100px; height: 80px;
+    top: -40px; right: 30px;
+}
+.cloud:nth-child(1)::after {
+    width: 120px; height: 60px;
+    top: -20px; left: 20px;
+}
+
+.cloud:nth-child(2) {
+    width: 300px; height: 80px;
+    top: 20%; left: -350px;
+    animation-duration: 35s;
+    animation-delay: -5s;
+}
+.cloud:nth-child(2)::before {
+    width: 150px; height: 100px;
+    top: -50px; right: 40px;
+}
+.cloud:nth-child(2)::after {
+    width: 180px; height: 80px;
+    top: -30px; left: 30px;
+}
+
+
+.cloud:nth-child(3) {
+    width: 150px; height: 50px;
+    top: 40%; left: -200px;
+    animation-duration: 45s;
+}
+
+.cloud:nth-child(4) {
+    width: 250px; height: 70px;
+    top: 60%; left: -300px;
+    animation-duration: 30s;
+    animation-delay: -10s;
+}
+.cloud:nth-child(4)::before {
+    width: 130px; height: 90px;
+    top: -45px; right: 35px;
+}
+.cloud:nth-child(4)::after {
+    width: 160px; height: 70px;
+    top: -25px; left: 25px;
+}
+
+.cloud:nth-child(5) {
+    width: 220px; height: 65px;
+    top: 80%; left: -270px;
+    animation-duration: 40s;
+    animation-delay: -2s;
+}
+
+
+@keyframes move-clouds {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(100vw + 350px));
+    }
+}
+
 header {
-    background-color: var(--white);
+    background-color: #B0E0E6; /* Sky Blue */
     padding: 2rem 1rem;
     border-bottom: 5px solid var(--peach-gold);
 }
