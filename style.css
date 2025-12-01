@@ -26,6 +26,12 @@ header {
     padding: 2rem 1rem;
     border-bottom: 5px solid var(--peach-gold);
 }
+.main-photo {
+    display: block;
+    margin: 0 auto;   /* Centraliza horizontalmente */
+    max-width: 100%;  /* Evita que estoure o layout */
+    height: auto;
+}
 
 h1 {
     font-family: 'Dancing Script', cursive;
@@ -124,3 +130,14 @@ footer {
         font-size: 2.3rem;
     }
 }
+
+.main-photo {
+    max-width: 50%;
+    height: auto;
+    border-radius: 15px;
+    border: 5px solid var(--peach-gold);
+    margin-top: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    display: block; /* Ensure it takes its own line */
+}
+
